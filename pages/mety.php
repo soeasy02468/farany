@@ -33,6 +33,7 @@ $resultats = mysqli_query($bdd, $requete);
     <meta charset="UTF-8">
     <title>Objets à emprunter</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>  
 </head>
 <body>
 
@@ -82,7 +83,6 @@ $resultats = mysqli_query($bdd, $requete);
         ?>
     </div>
 </div>
-
-<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<a href="envoye_offre.php">Envoyer une offre</a>
 </body>
 </html>

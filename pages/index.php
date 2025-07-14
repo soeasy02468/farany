@@ -13,9 +13,6 @@ $resultat = mysqli_query($bdd, 'SELECT * FROM Etudiant');
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <style>
-        
-    </style>
 </head>
 <body>
     <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
@@ -37,7 +34,6 @@ $resultat = mysqli_query($bdd, 'SELECT * FROM Etudiant');
                         </div>
                         <button type="submit" class="btn btn-primary w-100 mb-2">Se connecter</button>
                         <div class="text-center mb-3">
-                            <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
                         </div>
                         <div class="divider"></div>
                         <button type="button" id="show-signup" class="btn btn-outline-secondary w-100">
