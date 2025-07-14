@@ -2,7 +2,7 @@
 include("connection.php");
 
 function mampiditra_membre($nom, $email, $date, $mdp, $sexe) {
-    global $bdd; // Ensure the database connection is accessible
+    global $bdd; 
     $sql = "INSERT INTO membrePf (nom, email, date_de_naissance, mdp, genre) VALUES ('%s', '%s', '%s', '%s', '%s')";
     $sql = sprintf($sql, $nom, $email, $date, $mdp, $sexe);
     mysqli_query($bdd, $sql);

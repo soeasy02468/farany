@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['id_membre'];
+$idm=$_SESSION['idmembre'] ;
 require('../inc/connection.php');
 
 
@@ -34,6 +34,7 @@ $resultats = mysqli_query($bdd, $requete);
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+    <?php echo $idm;?>
 <div class="container mt-5">
     <h2 class="mb-4">Liste des objets</h2>
 
@@ -68,9 +69,10 @@ $resultats = mysqli_query($bdd, $requete);
             echo '      <h5 class="card-title">' . $obj['nom_objet'] . '</h5>';
             echo '      <p class="card-text">Catégorie : ' . $obj['nom_categorie'] . '</p>';
             if ($obj['date_retour']) {
-                echo '  <a href="produit.php?id=' . $obj['id_objet'] . '"><p class="text-danger">Emprunté jusqu\'au ' . $obj['date_retour'] . '</p></a>';
+                echo '<p class="text-danger">Emprunté jusqu\'au ' . $obj['date_retour'] . '</p>';
             } else {
-                echo '  <p class="text-success">Disponible</p>';
+                echo '<a href="produit.php?id=' . $obj['id_objet'] . '"><p class="text-success">Disponible</p></a>';
+
             }
             echo '    </div>';
             echo '  </div>';
