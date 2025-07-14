@@ -48,4 +48,6 @@ function voir_umprunt($id){
     $result = mysqli_fetch_all($req, MYSQLI_ASSOC);
     return $result;
 }
+
+
 ?>

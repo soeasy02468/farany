@@ -21,7 +21,6 @@ $resultat = mysqli_query($bdd, 'SELECT * FROM Etudiant');
                     <p class="text-muted">Empruntez ou prêtez des objets en toute simplicité</p>
                 </div>
 
-                <!-- Formulaire de Connexion -->
                 <div id="login-form" class="auth-form active">
                     <form action="traitementlog.php" method="get">
                         <div class="mb-3">
@@ -40,7 +39,6 @@ $resultat = mysqli_query($bdd, 'SELECT * FROM Etudiant');
                     </form>
                 </div>
 
-                <!-- Formulaire d'Inscription -->
                 <div id="signup-form" class="auth-form">
                     <form action="anehona.php" method="get">
                         <div class="mb-3">

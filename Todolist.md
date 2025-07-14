@@ -18,3 +18,6 @@ _Creer la page login.php
     traitement inscription
         * Récupération des inputs
         * fonction Requête 
+
+    -tsy vita le mirendre
+    
