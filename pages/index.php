@@ -1,6 +1,8 @@
 <?php
 require ('../inc/connection.php');
 $resultat = mysqli_query($bdd, 'SELECT * FROM Etudiant');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -2,6 +2,7 @@
 session_start();
 $idm=$_SESSION['idmembre'] ;
 require('../inc/connection.php');
+include('../inc/header.php');
 
 
 // Récupération des catégories
@@ -34,7 +35,7 @@ $resultats = mysqli_query($bdd, $requete);
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-    <?php echo $idm;?>
+
 <div class="container mt-5">
     <h2 class="mb-4">Liste des objets</h2>
 
