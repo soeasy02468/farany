@@ -8,12 +8,8 @@ require ('../inc/connection.php');
     $mdp=$_GET['mdp'];
     $sexe = $_GET['sexe'];
     $_SESSION['nom']= $nom;
-
-
-    $sql="INSERT INTO membrePf (nom,email,date_de_naissance,mdp,genre) VALUES ('%s','%s','%s','%s','%s')";
-    $sql = sprintf($sql,$nom,$email,$date,$mdp,$sexe);
+    mampiditra_membre($nom, $email, $date, $mdp, $sexe);
     // echo $sql;
-
-    $requete =mysqli_query($bdd,$sql);
+    // $requete =mysqli_query($bdd,$sql);
     header("location:mety.php");
     ?>

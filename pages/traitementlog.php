@@ -7,10 +7,11 @@
    $mdp1 = mysqli_real_escape_string($bdd, $_GET['mdp1']);
    
    // 2. Requête préparée (meilleure pratique)
-   $sql = "SELECT id_membre FROM membrePf WHERE email = ? AND mdp = ?";
-   $stmt = mysqli_prepare($bdd, $sql);
-   mysqli_stmt_bind_param($stmt, "ss", $email1, $mdp1);
-   mysqli_stmt_execute($stmt);
+//    $sql = "SELECT id_membre FROM membrePf WHERE email = ? AND mdp = ?";
+//    $stmt = mysqli_prepare($bdd, $sql);
+//    mysqli_stmt_bind_param($stmt, "ss", $email1, $mdp1);
+//    mysqli_stmt_execute($stmt);
+    verif($email1 , $mdp1);
    
    // 3. Récupération du résultat
    $result = mysqli_stmt_get_result($stmt);
