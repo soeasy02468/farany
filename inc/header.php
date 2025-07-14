@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="mety.php">OBJET_TROC</a>
+    <a class="navbar-brand fw-bold" href="../pages/mety.php">OBJET_TROC</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,13 +14,13 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="liste_objets.php">Objets</a>
+          <a class="nav-link" href="../pages/mety.php">Objets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="ajouter_objet.php">Ajouter un objet</a>
+          <a class="nav-link" href="../pages/envoye_offre.php">Ajouter un objet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="mes_emprunts.php">Mes emprunts</a>
+          <a class="nav-link" href="#">Mes emprunts</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -29,7 +29,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <a class="nav-link" href="profil.php">Mon Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="deconnexion.php">Déconnexion</a>
+            <a class="nav-link" href="../pages/deconnection.php">Déconnexion</a>
           </li>
         <?php else: ?>
           <li class="nav-item">
