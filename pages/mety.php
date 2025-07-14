@@ -43,7 +43,7 @@ $resultats = mysqli_query($bdd, $requete);
             <div class="col-md-6">
                 <label for="categorie">Filtrer par catégorie :</label>
                 <select name="categorie" id="categorie" class="form-select">
-                    <option value="0">-- Toutes les catégories --</option>
+                    <option value="0">Toutes les catégories</option>
                     <?php
                     while ($catRow = mysqli_fetch_assoc($categories)) {
                         $selected = ($cat == $catRow['id_categorie']) ? 'selected' : '';
@@ -67,7 +67,7 @@ $resultats = mysqli_query($bdd, $requete);
         if (!empty($obj['nom_image'])) {
             echo '<img src="uploads/' . htmlspecialchars($obj['nom_image']) . '" class="card-img-top" alt="' . htmlspecialchars($obj['nom_objet']) . '">';
         } else {
-            
+
             echo '<img src="uploads/default.png" class="card-img-top" alt="Image par défaut">';
         }
         
