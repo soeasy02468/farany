@@ -43,8 +43,7 @@ $donnermoner = mysqli_fetch_assoc($sqli);
             </div>
         </div>
     </div>
-
-    <!-- Formulaire changement PDP -->
+    
     <div class="card mb-4">
         <div class="card-header bg-white">
             <h4>Photo de profil</h4>
@@ -60,7 +59,6 @@ $donnermoner = mysqli_fetch_assoc($sqli);
         </div>
     </div>
 
-    <!-- Objets empruntés -->
     <div class="card mb-4">
         <div class="card-header bg-white">
             <h4>Objets que vous avez empruntés</h4>
