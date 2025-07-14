@@ -1,3 +1,6 @@
+<?php 
+    
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,8 +23,13 @@
       </div>
       
       <div class="mb-3">
-        <label for="categorie" class="form-label">Catégorie</label>
-        <input type="text" class="form-control" id="categorie" name="categorie" placeholder="Catégorie" required>
+        <label for="id_categorie" class="form-label">Catégorie</label>
+        <select class="form-select" id="id_categorie" name="id_categorie" required>
+          <option value="1">Esthétique</option>
+          <option value="2">Bricolage</option>
+          <option value="3">Mécanique</option>
+          <option value="4">Cuisine</option>
+        </select>
       </div>
       
       <div class="mb-3">

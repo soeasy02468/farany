@@ -4,21 +4,19 @@ $idm=$_SESSION['idmembre'] ;
 require('../inc/connection.php');
 include('../inc/header.php');
 
-
-// Récupération des catégories
 $categories = mysqli_query($bdd, "SELECT * FROM categorie_objetPf");
 
-// Traitement du filtre
 $cat = 0;
 if (isset($_POST['categorie'])) {
     $cat = intval($_POST['categorie']);
 }
 
-// Requête des objets avec info d'emprunt
-$requete = "SELECT objetPf.*, categorie_objetPf.nom_categorie, empruntPf.date_retour
+$requete = "SELECT objetPf.*, categorie_objetPf.nom_categorie, empruntPf.date_retour, images_objetPf.nom_image
             FROM objetPf
             INNER JOIN categorie_objetPf ON objetPf.id_categorie = categorie_objetPf.id_categorie
-            LEFT JOIN empruntPf ON objetPf.id_objet = empruntPf.id_objet";
+            LEFT JOIN empruntPf ON objetPf.id_objet = empruntPf.id_objet
+            LEFT JOIN images_objetPf ON objetPf.id_objet = images_objetPf.id_objet";
+
 
 if ($cat > 0) {
     $requete .= " WHERE objetPf.id_categorie = $cat";
@@ -40,7 +38,6 @@ $resultats = mysqli_query($bdd, $requete);
 <div class="container mt-5">
     <h2 class="mb-4">Liste des objets</h2>
 
-    <!-- Formulaire de filtre -->
     <form method="post" class="mb-4">
         <div class="row">
             <div class="col-md-6">
@@ -61,27 +58,36 @@ $resultats = mysqli_query($bdd, $requete);
         </div>
     </form>
 
-    <!-- Liste des objets -->
     <div class="row">
-        <?php
-        while ($obj = mysqli_fetch_assoc($resultats)) {
-            echo '<div class="col-md-4 mb-4">';
-            echo '  <div class="card shadow-sm">';
-            echo '    <div class="card-body">';
-            echo '      <h5 class="card-title">' . $obj['nom_objet'] . '</h5>';
-            echo '      <p class="card-text">Catégorie : ' . $obj['nom_categorie'] . '</p>';
-            if ($obj['date_retour']) {
-                echo '<p class="text-danger">Emprunté jusqu\'au ' . $obj['date_retour'] . '</p>';
-            } else {
-                echo '<a href="produit.php?id=' . $obj['id_objet'] . '"><p class="text-success">Disponible</p></a>';
-
-            }
-            echo '    </div>';
-            echo '  </div>';
-            echo '</div>';
+    <?php
+    while ($obj = mysqli_fetch_assoc($resultats)) {
+        echo '<div class="col-md-4 mb-4">';
+        echo '  <div class="card shadow-sm">';
+        
+        if (!empty($obj['nom_image'])) {
+            echo '<img src="uploads/' . htmlspecialchars($obj['nom_image']) . '" class="card-img-top" alt="' . htmlspecialchars($obj['nom_objet']) . '">';
+        } else {
+            
+            echo '<img src="uploads/default.png" class="card-img-top" alt="Image par défaut">';
         }
-        ?>
-    </div>
+        
+        echo '    <div class="card-body">';
+        echo '      <h5 class="card-title">' . htmlspecialchars($obj['nom_objet']) . '</h5>';
+        echo '      <p class="card-text">Catégorie : ' . htmlspecialchars($obj['nom_categorie']) . '</p>';
+        
+        if ($obj['date_retour']) {
+            echo '<p class="text-danger">Emprunté jusqu\'au ' . htmlspecialchars($obj['date_retour']) . '</p>';
+        } else {
+            echo '<a href="produit.php?id=' . (int)$obj['id_objet'] . '"><p class="text-success">Disponible</p></a>';
+        }
+        
+        echo '    </div>';
+        echo '  </div>';
+        echo '</div>';
+    }
+    ?>
+</div>
+
 </div>
 <a href="envoye_offre.php">Envoyer une offre</a>
 </body>

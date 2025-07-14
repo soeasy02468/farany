@@ -14,4 +14,22 @@ function verif($email, $mdp){
     $sql = sprintf($sql, $email,$mdp);
     $req = mysqli_query($bdd , $sql);
 }
+
+function mampidita_object($nomObjetEsc , $idCategorieEsc,$idMembreEsc){
+    global $bdd;
+    $sql = "INSERT INTO objetPf (nom_objet, id_categorie, id_membre) VALUES ('%s','%s', '%s')";
+    $sql = sprintf($sql,$nomObjetEsc,$idCategorieEsc,$idMembreEsc);
+    $result = mysqli_query($bdd, $sql);
+    return $result;
+}
+
+function mampiditra_image($nouveauNom, $idObjet){
+    global $bdd;
+    $nouveauNomEsc = mysqli_real_escape_string($bdd, $nouveauNom);
+    $sqlImg = "INSERT INTO images_objetPf (id_objet, nom_image) VALUES ('%s', '%s')";
+    $sqlImg = sprintf($sqlImg, $idObjet, $nouveauNomEsc);
+    $resultImg = mysqli_query($bdd, $sqlImg);
+    return $resultImg;
+}
+
 ?>
