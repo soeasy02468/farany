@@ -42,6 +42,11 @@ CREATE TABLE empruntPf (
     FOREIGN KEY (id_objet) REFERENCES objetPf(id_objet),
     FOREIGN KEY (id_membre) REFERENCES membrePf(id_membre)
 );
+create TABLE IMAGEPDP_Pf (
+    id_membre INT,
+    SOURCE VARCHAR(100),
+    Date_upload Date
+);
 
 -- INSERTION des membres
 INSERT INTO membrePf (nom, date_de_naissance, genre, email, ville, mdp, image_profil) VALUES
