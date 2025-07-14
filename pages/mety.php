@@ -2,6 +2,7 @@
 session_start();
 $idm = $_SESSION['idmembre'];
 require('../inc/connection.php');
+require('../inc/functions.php');
 include('../inc/header.php');
 
 $categories = mysqli_query($bdd, "SELECT * FROM categorie_objetPf");
@@ -41,7 +42,6 @@ $resultats = mysqli_query($bdd, $requete);
 <div class="container mt-5">
     <h2 class="mb-4 text-center text-primary fw-bold">Objets disponibles à l'emprunt</h2>
 
-    <!-- Formulaire de filtre -->
     <form method="post" class="mb-4">
         <div class="row g-2">
             <div class="col-md-6">
@@ -97,8 +97,6 @@ $resultats = mysqli_query($bdd, $requete);
     </div>
 
     <div class="text-center mt-4">
-        <a href="profil.php" class="btn btn-outline-primary">Voir mon profil</a>
-        <a href="envoye_offre.php" class="btn btn-outline-secondary ms-2">Envoyer une offre</a>
     </div>
 </div>
 

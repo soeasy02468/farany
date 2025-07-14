@@ -1,8 +1,7 @@
 <?php
 session_start();
-require('../inc/connection.php'); // ← N'oublie pas la connexion à la base
+require('../inc/connection.php');
 
-// Vérification de la session et des paramètres
 if (isset($_SESSION['idmembre']) && isset($_GET['id'])) {
     $idmembre = intval($_SESSION['idmembre']);
     $idproduit = intval($_GET['id']);
@@ -10,12 +9,10 @@ if (isset($_SESSION['idmembre']) && isset($_GET['id'])) {
     if (isset($_GET['date_retour'])) {
         $date_retour = $_GET['date_retour'];
 
-        // Préparer la requête correctement
         $sql = "INSERT INTO empruntPf (id_objet, id_membre, date_emprunt, date_retour)
                 VALUES ($idproduit, $idmembre, NOW(), '$date_retour')";
         
         if (mysqli_query($bdd, $sql)) {
-            // Redirection vers mety.php après insertion réussie
             header("Location: mety.php");
             exit();
         } else {

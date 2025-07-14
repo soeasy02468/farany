@@ -32,4 +32,20 @@ function mampiditra_image($nouveauNom, $idObjet){
     return $resultImg;
 }
 
+function maka_membre(){
+    global $bdd;
+    $sql = "SELECT * FROM membrePf";
+    $req = mysqli_query($bdd, $sql); 
+    $result = mysqli_fetch_all($req, MYSQLI_ASSOC);
+    return $result;
+}
+
+function voir_umprunt($id){
+    global $bdd;
+    $sql = "SELECT nom_objet FROM empruntPf JOIN objetPf ON empruntPf.id_objet = objetPf.id_objet WHERE empruntPf.id_membre = '%s'";
+    $sql = sprintf($sql, $id);
+    $req = mysqli_query($bdd, $sql);
+    $result = mysqli_fetch_all($req, MYSQLI_ASSOC);
+    return $result;
+}
 ?>

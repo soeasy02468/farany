@@ -11,10 +11,8 @@ $sexe = $_GET['sexe'];
 
 $_SESSION['nom'] = $nom;
 
-// Appelle la fonction d'insertion (supposée sécurisée)
 mampiditra_membre($nom, $email, $date, $mdp, $sexe);
 
-// Prépare la requête SQL avec les variables injectées correctement
 $sql = sprintf(
     "SELECT id_membre FROM membrePf WHERE nom='%s' AND email='%s' AND mdp='%s'",
     mysqli_real_escape_string($bdd, $nom),

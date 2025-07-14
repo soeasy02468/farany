@@ -20,8 +20,11 @@ if (session_status() === PHP_SESSION_NONE) {
           <a class="nav-link" href="../pages/envoye_offre.php">Ajouter un objet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Mes emprunts</a>
+          <a class="nav-link" href="../pages/mes_umprunt.php">Mes emprunts</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../pages/membres.php">Membres</a>
+        </li> 
       </ul>
       <ul class="navbar-nav ms-auto">
         <?php if (isset($_SESSION['idmembre'])): ?>

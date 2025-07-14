@@ -9,7 +9,6 @@ if (!isset($_GET['id'])) {
 
 $idObjet = intval($_GET['id']);
 
-// Infos de l'objet
 $objetQuery = mysqli_query($bdd, "
     SELECT objetPf.*, categorie_objetPf.nom_categorie 
     FROM objetPf 
@@ -24,7 +23,6 @@ if (!$objet) {
     exit;
 }
 
-// Images de l'objet
 $imagesQuery = mysqli_query($bdd, "
     SELECT nom_image FROM images_objetPf WHERE id_objet = $idObjet
 ");
@@ -33,7 +31,6 @@ while ($img = mysqli_fetch_assoc($imagesQuery)) {
     $images[] = $img['nom_image'];
 }
 
-// Historique d'emprunts
 $empruntsQuery = mysqli_query($bdd, "
     SELECT empruntPf.date_emprunt, empruntPf.date_retour, membrePf.nom 
     FROM empruntPf 
