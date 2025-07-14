@@ -4,16 +4,13 @@ $idm = $_SESSION['idmembre'];
 require('../inc/connection.php');
 include('../inc/header.php');
 
-// Récupération des catégories
 $categories = mysqli_query($bdd, "SELECT * FROM categorie_objetPf");
 
-// Filtrage éventuel
 $cat = 0;
 if (isset($_POST['categorie'])) {
     $cat = intval($_POST['categorie']);
 }
 
-// Requête des objets avec image principale et infos d'emprunt
 $requete = "
     SELECT objetPf.*, categorie_objetPf.nom_categorie, empruntPf.date_retour, images_objetPf.nom_image
     FROM objetPf
@@ -26,7 +23,7 @@ if ($cat > 0) {
     $requete .= " WHERE objetPf.id_categorie = $cat";
 }
 
-$requete .= " GROUP BY objetPf.id_objet"; // Pour éviter les doublons
+$requete .= " GROUP BY objetPf.id_objet";
 $resultats = mysqli_query($bdd, $requete);
 ?>
 
@@ -38,49 +35,6 @@ $resultats = mysqli_query($bdd, $requete);
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
-        <style>
-            body {
-                background-color: #f2f4f8;
-            }
-            .card {
-                transition: transform 0.2s;
-                height: 100%;
-            }
-            .card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-            .card-img-top {
-                height: 200px;
-                object-fit: cover;
-                border-top-left-radius: 0.5rem;
-                border-top-right-radius: 0.5rem;
-            }
-            .disponible {
-                color: #28a745;
-                font-weight: bold;
-            }
-            .indisponible {
-                color: #dc3545;
-                font-weight: bold;
-            }
-            .btn-emprunt {
-                background-color: #28a745;
-                border-color: #28a745;
-            }
-            .btn-emprunt:hover {
-                background-color: #218838;
-                border-color: #1e7e34;
-            }
-            .btn-details {
-                background-color: #17a2b8;
-                border-color: #17a2b8;
-            }
-            .btn-details:hover {   
-                background-color: #138496;
-                border-color: #117a8b;
-            }
-        </style>
 </head>
 <body>
 
@@ -106,7 +60,6 @@ $resultats = mysqli_query($bdd, $requete);
         </div>
     </form>
 
-    <!-- Affichage des objets -->
     <div class="row">
         <?php while ($obj = mysqli_fetch_assoc($resultats)) : ?>
             <div class="col-md-4 mb-4">
